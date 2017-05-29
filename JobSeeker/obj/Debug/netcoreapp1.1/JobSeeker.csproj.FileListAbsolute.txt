@@ -1,0 +1,9 @@
+C:\Users\elusiven\documents\visual studio 2017\Projects\JobSeeker\JobSeeker\bin\Debug\netcoreapp1.1\JobSeeker.deps.json
+C:\Users\elusiven\documents\visual studio 2017\Projects\JobSeeker\JobSeeker\bin\Debug\netcoreapp1.1\JobSeeker.runtimeconfig.json
+C:\Users\elusiven\documents\visual studio 2017\Projects\JobSeeker\JobSeeker\bin\Debug\netcoreapp1.1\JobSeeker.runtimeconfig.dev.json
+C:\Users\elusiven\documents\visual studio 2017\Projects\JobSeeker\JobSeeker\bin\Debug\netcoreapp1.1\JobSeeker.dll
+C:\Users\elusiven\documents\visual studio 2017\Projects\JobSeeker\JobSeeker\obj\Debug\netcoreapp1.1\JobSeeker.csprojResolveAssemblyReference.cache
+C:\Users\elusiven\documents\visual studio 2017\Projects\JobSeeker\JobSeeker\obj\Debug\netcoreapp1.1\JobSeeker.AssemblyInfo.cs
+C:\Users\elusiven\documents\visual studio 2017\Projects\JobSeeker\JobSeeker\bin\Debug\netcoreapp1.1\JobSeeker.pdb
+C:\Users\elusiven\documents\visual studio 2017\Projects\JobSeeker\JobSeeker\obj\Debug\netcoreapp1.1\JobSeeker.dll
+C:\Users\elusiven\documents\visual studio 2017\Projects\JobSeeker\JobSeeker\obj\Debug\netcoreapp1.1\JobSeeker.pdb
