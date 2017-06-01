@@ -39,6 +39,16 @@ namespace JobSeeker.Data
             return _context.Companies.ToList();
         }
 
+        public IEnumerable<Company> GetAllCompaniesForUser(string userName)
+        {
+            return _context.Companies.Where(c => c.UserName == userName).ToList();
+        }
+
+        public Company GetCompanyForUser(int companyId, string userName)
+        {
+            return _context.Companies.Where(c => c.CompanyId == companyId).FirstOrDefault(c => c.UserName == userName);
+        }
+
         public Company GetCompany(int id)
         {
             return _context.Companies.FirstOrDefault(c => c.CompanyId == id);
@@ -46,12 +56,16 @@ namespace JobSeeker.Data
 
         public IEnumerable<Job> GetAllJobs(int companyId)
         {
-            return _context.Jobs.Where(c => c.CompanyId == companyId);
+            return _context.Companies
+                .FirstOrDefault(c => c.CompanyId == companyId)
+                .Jobs.ToList();
         }
 
         public Job GetJob(int id, int companyId)
         {
-            return _context.Jobs.Where(j => j.JobId == id).FirstOrDefault(j => j.CompanyId == companyId);
+            return _context.Companies
+                .FirstOrDefault(c => c.CompanyId == companyId)
+                .Jobs.FirstOrDefault(j => j.JobId == id);
         }
     }
 }

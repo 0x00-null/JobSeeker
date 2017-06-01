@@ -17,7 +17,7 @@ using Microsoft.Extensions.Logging;
 namespace JobSeeker.Controllers
 {
     [Route("api/[controller]")]
-    [Authorize(Policy = "Manage Companies")]
+    [Authorize]
     public class CompaniesController : Controller
     {
         private readonly ILogger<CompaniesController> _logger;
@@ -82,44 +82,6 @@ namespace JobSeeker.Controllers
             }
 
             return BadRequest("Failed to fetch all companies");
-        }
-
-        // Get a single job by ID from company
-        [HttpGet("{companyId}/jobs/{id}")]
-        [AllowAnonymous]
-        public IActionResult Get(int companyId, int id)
-        {
-            try
-            {
-                var job = _repo.GetJob(id, companyId);
-                if (job == null) return NotFound($"Job could not be found within in company id {companyId} with an id of {id}");
-                return Ok(job);
-            }
-            catch (Exception e)
-            {
-                _logger.LogError($"Failed to fetch this specific job. Ex: {e}");
-            }
-
-            return BadRequest($"Failed to fetch this job ID {id} in the company ID of {companyId}");
-        }
-
-        // Get all jobs from company
-        [HttpGet("{companyId}/jobs")]
-        [AllowAnonymous]
-        public IActionResult GetAll(int companyId)
-        {
-            try
-            {
-                var jobs = _repo.GetAllJobs(companyId);
-                if (jobs == null && !jobs.Any()) return NotFound($"Could not find any jobs in the company of ID {companyId}");
-                return Ok(jobs);
-            }
-            catch (Exception e)
-            {
-                _logger.LogError($"Failed to fetch all jobs in the company of ID {companyId}. Ex: {e}");
-            }
-
-            return BadRequest($"Failed to fetch any jobs in the company of ID {companyId}");
         }
 
         // Create a company

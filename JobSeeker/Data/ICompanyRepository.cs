@@ -18,7 +18,9 @@ namespace JobSeeker.Data
         // Companies
         IEnumerable<Company> GetAllCompanies();
         Company GetCompany(int id);
-
+        IEnumerable<Company> GetAllCompaniesForUser(string userName);
+        Company GetCompanyForUser(int companyId, string userName);
+        // Jobs
         IEnumerable<Job> GetAllJobs(int companyId);
         Job GetJob(int id, int companyId);
     }

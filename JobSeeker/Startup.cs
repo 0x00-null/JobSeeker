@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using JobSeeker.Data;
 using JobSeeker.Helpers;
 using JobSeeker.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -37,6 +38,8 @@ namespace JobSeeker
             services.AddSingleton(_config);
 
             services.AddDbContext<ApplicationDbContext>();
+
+            services.AddScoped<ICompanyRepository, CompanyRepository>();
 
             services.AddTransient<EnsureSeedData>();
 
@@ -79,8 +82,6 @@ namespace JobSeeker
                 options.AddPolicy("Manage Accounts", policy => policy.RequireRole("administrator"));
                 // Policy for resources
                 options.AddPolicy("Access Resources", policy => policy.RequireRole("user", "administrator"));
-                // Only registered users can create new companies
-                options.AddPolicy("Manage Companies", policy => policy.RequireRole("user", "administrator"));
             });
         }
 
@@ -108,7 +109,7 @@ namespace JobSeeker
 
             app.UseMvc();
 
-            seeder.ExecuteSeed();
+            seeder.ExecuteSeed().Wait();
         }
     }
 }
